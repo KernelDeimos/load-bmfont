@@ -1,7 +1,6 @@
 var fs = require('fs')
 var url = require('url')
 var path = require('path')
-var request = require('phin')
 var parseASCII = require('parse-bmfont-ascii')
 var parseXML = require('parse-bmfont-xml')
 var readBinary = require('parse-bmfont-binary')
@@ -46,7 +45,7 @@ module.exports = function loadFont(opt, cb) {
   }
 
   if (url.parse(file).host) {
-    request(opt, handleData)
+    // NOOP
   } else {
     fs.readFile(file, opt, handleData)
   }
